@@ -37,6 +37,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> familyList, View view, int position, long id) {
+                    Family family = (Family) familyList.getItemAtPosition(position);
+
+                    Intent intention = new Intent(MainActivity.this, FamilyFormActivity.class);
+                    intention.putExtra("family", family);
+                    startActivity(intention);
+            }
+        });
+
     }
 
     @Override
@@ -63,6 +74,16 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        MenuItem editItem = menu.add("Edit");
+        editItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Toast.makeText(MainActivity.this, "Edit Selected",Toast.LENGTH_LONG).show();
+                return true;
+            }
+        });
+
     }
 
     private ListView getListView(){

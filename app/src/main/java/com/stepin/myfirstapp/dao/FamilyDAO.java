@@ -71,4 +71,10 @@ public class FamilyDAO extends SQLiteOpenHelper {
         String[] ids = {selected.getId()+""};
         database.delete("family","id = ?",ids);
     }
+
+    public void update(Family family, Integer id) {
+        SQLiteDatabase database = getWritableDatabase();
+        String[] uId = { id+"" };
+        database.update("family", family.getContent(), "id = ?",uId);
+    }
 }

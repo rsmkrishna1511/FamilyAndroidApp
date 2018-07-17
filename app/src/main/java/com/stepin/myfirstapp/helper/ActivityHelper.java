@@ -54,4 +54,24 @@ public class ActivityHelper {
 
         return new Family( getName(),getEmail(),getWebsite(),getPnumber(),getAddress(),getRating());
     }
+
+    public void fillFamilyInfo(Family family) {
+       EditText nameInput =  activity.findViewById(R.id.editText_Name);
+       nameInput.setText(family.getfName());
+
+        EditText addresInput =  activity.findViewById(R.id.editText_Address);
+        addresInput.setText(family.getAddress());
+
+        EditText phInput =  activity.findViewById(R.id.editText_Phone);
+        phInput.setText((family.getpNumber() == null ? "" : family.getpNumber().toString()));
+
+        EditText siteInput = activity.findViewById(R.id.editText_Website);
+        siteInput.setText(family.getWebsite());
+
+        EditText emailInput = activity.findViewById(R.id.editText_eMail);
+        emailInput.setText(family.getEmail());
+
+        RatingBar rBar = activity.findViewById(R.id.ratingBar);
+        rBar.setRating(family.getRating().floatValue());
+    }
 }

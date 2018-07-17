@@ -2,7 +2,9 @@ package com.stepin.myfirstapp.model;
 
 import android.content.ContentValues;
 
-public class Family {
+import java.io.Serializable;
+
+public class Family  implements Serializable{
 
     private Integer id;
     private String fName;
